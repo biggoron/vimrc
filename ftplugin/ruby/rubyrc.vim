@@ -29,7 +29,7 @@
 :nnoremap σ bi:<esc>e
 
 "execute file with alt-gr enter
-:nnoremap ≃ :!ruby %:p<cr>
+:nnoremap ¬ :!ruby %:p<cr>
 
 "-----------rails commands prefill---------------
 "edit files in folder ...
@@ -49,4 +49,5 @@
 :nnoremap ξm :! rake db:migrate<cr>
 :nnoremap ξb :! rake bundle install<cr>
 
-
+"A trier
+:nnoremap ∃rs :vsp ~/.vim/bundle/vim-snippets/snippets/ruby-snippets <cr>

@@ -24,7 +24,7 @@ colorscheme solarized
 
 "take win+e for edit commands ∃        
 "quick edit .vimrc in a split of the screen
-:nnoremap ∃v :vsplit $MYVIMRC<cr> 
+:nnoremap ∃v :vsplit ~/.vim/.vimrc<cr> 
 "∃: win + e
 
 
@@ -47,10 +47,10 @@ colorscheme solarized
 
 "search for placeholder
 :nnoremap ô /ô<cr>
-"altgr+shift+p 
+"altgr+p 
 
 :nnoremap Ô ?ô<cr>
-"win+p
+"altgr+shift+p 
 
 "quick position marking:
 :nnoremap ö 'm
@@ -59,11 +59,6 @@ colorscheme solarized
 
 "left side numbers
 :set number
-
-"vi seems short enough
-"alt-gr + v = ν is for selecting areas
-"select visualy a word
-":nnoremap νw viw
 
 "move line up / down
 :nnoremap ï kddpk
@@ -186,6 +181,14 @@ colorscheme solarized
   :autocmd Filetype css :source $CSSRC
 :augroup END
 
+" conf for vimscript
+:augroup vimScript
+:autocmd!
+  ":autocmd Filetype vim :source $ERUBYRC
+  :syntax match Shortcut "\v^(\S)*remap \zs\S*"
+  :highlight link Shortcut Error
+:augroup END
+
 "in parenthesis / brackets / braces
  "i( i[ i{ works, just like i" i' i<
 "in the next parenthesis
@@ -223,7 +226,7 @@ colorscheme solarized
 
 "put the line at the end of the previous line
 "æ is alt-gr and a
-"TODO
+"TODO look at ruby file
 
 "remap the directionnal pad to switch split
 :nnoremap <Left> <C-W>h
@@ -241,8 +244,12 @@ colorscheme solarized
 :nnoremap ░ :w<cr>
 
 " Tabularize
+:vnoremap <localleader>t= :Tabularize /=<cr>
+:vnoremap <localleader>t, :Tabularize /,\zs<cr>
+:vnoremap <localleader>t⌛ :Tabularize / <cr>
 :nnoremap <localleader>t= :Tabularize /=<cr>
 :nnoremap <localleader>t, :Tabularize /,\zs<cr>
+:nnoremap <localleader>t⌛ :Tabularize / <cr>
 
 " Fast registered deletion
 " δ is win and d
@@ -262,3 +269,24 @@ colorscheme solarized
 :vnoremap ⌛ <esc>zz
 :inoremap ⌛ <esc>zz
 
+" A ranger
+
+:function! RepeatCommand(command, ...)
+: if a:0 > 0
+:   let l:step = a:1 . "m"
+: else
+:   let l:step = "10m"
+: end
+
+: let c = 1
+: while c <= 10
+:   execute "normal! " . a:command
+:	  let c = c + 1
+:   execute "sleep " . l:step
+:   redraw!
+: endwhile  
+:endfunction
+
+" win makes movement 10 times faster
+:nnoremap 𝑗 :call RepeatCommand("jzz", "8")<cr>
+:nnoremap 𝑘 :call RepeatCommand("kzz", "8")<cr>
