@@ -79,4 +79,4 @@
 :ab πp plt.plot()
 
 "execute current file
-:nnoremap €€ :! python expand('%:p')
+:nnoremap €€ :! python2.7 % <cr>

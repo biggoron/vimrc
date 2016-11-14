@@ -1,6 +1,9 @@
 :set nocompatible
 :set encoding=utf-8
 
+" makes ! behave the same than console (aliases, etc...)
+:set shellcmdflag=-ic
+
 "Pathogen, for plugins
 execute pathogen#infect()
 
@@ -17,25 +20,20 @@ colorscheme solarized
 "Configuration file
 :syntax on
 
-"to use colorschemes, enable 256 colors:
-":set t_Co=256
-":colorscheme mine
-":nnoremap ∃c :vsplit ~/.vim/colors/mine.vim<cr>
-
 "take win+e for edit commands ∃        
 "quick edit .vimrc in a split of the screen
 :nnoremap ∃v :vsplit ~/.vim/.vimrc<cr> 
 "∃: win + e
 
-
 "quick edit vim ideas:
-:nnoremap ∃i :vsplit ~/.vim/ideas.vim
+:nnoremap ∃i :vsplit ~/.vim/ideas.vim<cr>
 
 "win + s is for sourcing files ₪
 "quick source main config file .vimrc
 :nnoremap ₪v :source $MYVIMRC<cr>
 "₪: win + s
 
+" Leaders
 "definition of leader key
 :let mapleader = "ù"
 
@@ -56,9 +54,12 @@ colorscheme solarized
 :nnoremap ö 'm
 "altgr + m 
 
-
 "left side numbers
 :set number
+
+"switch to relative numbers
+:nnoremap ê :set relativenumber!<cr>
+" ê : altgr-r
 
 "move line up / down
 :nnoremap ï kddpk
@@ -92,9 +93,6 @@ colorscheme solarized
   :autocmd BufReadPost french_programming /symbols
 :augroup END
 
-"TODO: for each group which call an external config file, put
-"      some keystroke to load the good locale
-
 "Load conf for python files
 :let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
 :nnoremap ∃prc :vsplit $PYTHONRC<cr>
@@ -107,38 +105,21 @@ colorscheme solarized
 
 "Load conf for ruby files
 :let $RUBYRC = $HOME."/.vim/ftplugin/ruby/rubyrc.vim"
-:let $RUBYRCFR = $HOME."/.vim/ftplugin/ruby/rubyrc_fr.vim"
 
 "English configuration
 :nnoremap ∃rrc :vsplit $RUBYRC<cr>
 :nnoremap ₪rrc :source $RUBYRC<cr>
-"French configuration
-:nnoremap ∃rrcfr :vsplit $RUBYRCFR<cr>
-:nnoremap ₪rrcfr :source $RUBYRCFR<cr>
-:nnoremap ∃rc :vsplit ~/.vim/colors/ruby.vim<cr>
-:command! RubyGr vsp /usr/share/vim/vim74/syntax/ruby.vim
-" ∃: win + e
 
 :augroup Ruby
 :autocmd!
-  "remove FR to get english keyboard conf for ruby, or use the archived
-  "vimrc file for english keyboards
-  :autocmd Filetype ruby :source $RUBYRCFR
-  :autocmd Filetype ruby :setlocal wrap
-  :autocmd Filetype ruby :setlocal wrapmargin=2
-  :autocmd Filetype ruby :setlocal shiftwidth=2
-  :autocmd Filetype ruby :setlocal autoindent
-  :autocmd Filetype ruby :setlocal smarttab
-  :autocmd Filetype ruby :setlocal expandtab
-  :autocmd Filetype ruby :setlocal softtabstop=2
+  :autocmd Filetype ruby :source $RUBYRC
 :augroup END
 
 "Load conf for eruby files
 :let $ERUBYRC = $HOME."/.vim/ftplugin/ruby/erubyrc.vim"
 :nnoremap ∃errc :vsplit $ERUBYRC<cr>
 :command! ErubyGr vsp /usr/share/vim/vim74/syntax/eruby.vim
-  :nnoremap ∃erc :vsplit ~/.vim/colors/eruby.vim<cr>
-" ∃: win + e
+:nnoremap ∃erc :vsplit ~/.vim/colors/eruby.vim<cr>
 
 :augroup eRuby
 :autocmd!
@@ -150,7 +131,6 @@ colorscheme solarized
 :nnoremap ∃scssrc :vsplit $SCSSRC<cr>
 :command! ScssGr vsp /usr/share/vim/vim74/syntax/scss.vim
 :nnoremap ∃scssc :vsplit ~/.vim/colors/scss.vim<cr>
-" ∃: win + e
 
 :augroup scss
 :autocmd!
@@ -174,19 +154,10 @@ colorscheme solarized
 :nnoremap ∃cssrc :vsplit $CSSRC<cr>
 :command! CssGr vsp /usr/share/vim/vim74/syntax/css.vim
 :nnoremap ∃cssc :vsplit ~/.vim/colors/css.vim<cr>
-" ∃: win + e
 
 :augroup css
 :autocmd!
   :autocmd Filetype css :source $CSSRC
-:augroup END
-
-" conf for vimscript
-:augroup vimScript
-:autocmd!
-  ":autocmd Filetype vim :source $ERUBYRC
-  :syntax match Shortcut "\v^(\S)*remap \zs\S*"
-  :highlight link Shortcut Error
 :augroup END
 
 "in parenthesis / brackets / braces
@@ -204,10 +175,6 @@ colorscheme solarized
 "in the last braces
 :onoremap in{ :<c-u>normal! F{vi{<cr>
 
-"switch to relative numbers
-:nnoremap ê :set relativenumber!<cr>
-" ê : altgr-r
-
 "wrapping lines
 :set wrap
 :set textwidth=0
@@ -220,19 +187,11 @@ colorscheme solarized
 :set showmatch
 :set matchtime=1
 
-"handling _ words
-"« is alt-gr and w
-"TODO
-
-"put the line at the end of the previous line
-"æ is alt-gr and a
-"TODO look at ruby file
-
 "remap the directionnal pad to switch split
-:nnoremap <Left> <C-W>h
-:nnoremap <Right> <C-W>l
-:nnoremap <Up> <C-W>k
-:nnoremap <Down> <C-W>j
+:nnoremap   <Left>    <C-W>h
+:nnoremap   <Right>   <C-W>l
+:nnoremap   <Up>      <C-W>k
+:nnoremap   <Down>    <C-W>j
 
 "prefill search command
 "ß is alt-gr and s, „ is the same with shift
@@ -264,12 +223,11 @@ colorscheme solarized
 :nnoremap j jzz
 :nnoremap k kzz
 :nnoremap l lzz
+
 " ⌛ is alt-gr and space
 :nnoremap ⌛ <esc>zz
 :vnoremap ⌛ <esc>zz
 :inoremap ⌛ <esc>zz
-
-" A ranger
 
 :function! RepeatCommand(command, ...)
 : if a:0 > 0
@@ -290,3 +248,29 @@ colorscheme solarized
 " win makes movement 10 times faster
 :nnoremap 𝑗 :call RepeatCommand("jzz", "8")<cr>
 :nnoremap 𝑘 :call RepeatCommand("kzz", "8")<cr>
+
+"Keyboard selection
+:noremap <leader>kfr :silent !fkey<cr><C-l>
+:noremap <leader>kfp :silent !fpkey<cr><C-l>
+:noremap <leader>kj :silent !jkey<cr><C-l>
+:noremap <leader>kp :silent !pkey<cr><C-l>
+
+"Keyboard change
+:noremap ∃kfr :sp ~/.xkb/french<cr>
+:noremap ∃kfp :sp ~/.xkb/french_programming<cr>
+:noremap ∃kj :sp ~/.xkb/japanese<cr>
+:noremap ∃kp :sp ~/.xkb/prog<cr>
+
+"Keyboard key print
+:function! KeyGrep(k)
+  :sp ~/.xkb/french_programming
+  :execute '/xkb_symbols'
+  :execute '/ '.a:k.', '
+  :execute '?key <'
+  :execute ':normal V'
+  :execute '/};'
+  :normal "ay
+  :q!
+  :let @z = substitute(@a, ' *key *<\(.*\)> *{\_s*type= *"\(.*\)"', '\1:\n  type: \2\n  ', '') 
+  :echom @z
+:endfunction
