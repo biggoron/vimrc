@@ -1,4 +1,5 @@
 :set nocompatible
+:set backspace=2
 :set encoding=utf-8
 
 " makes ! behave the same than console (aliases, etc...)
@@ -96,6 +97,7 @@ colorscheme solarized
 "Load conf for python files
 :let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
 :nnoremap ∃prc :vsplit $PYTHONRC<cr>
+:nnoremap ₪prc :source $PYTHONRC<cr>
 " ∃: win + e
 
 :augroup Python
@@ -106,7 +108,6 @@ colorscheme solarized
 "Load conf for ruby files
 :let $RUBYRC = $HOME."/.vim/ftplugin/ruby/rubyrc.vim"
 
-"English configuration
 :nnoremap ∃rrc :vsplit $RUBYRC<cr>
 :nnoremap ₪rrc :source $RUBYRC<cr>
 
@@ -274,3 +275,8 @@ colorscheme solarized
   :let @z = substitute(@a, ' *key *<\(.*\)> *{\_s*type= *"\(.*\)"', '\1:\n  type: \2\n  ', '') 
   :echom @z
 :endfunction
+
+:nnoremap ∃sr :vsp ~/.vim/bundle/vim-snippets/snippets/ruby.snippets<cr>
+
+:nnoremap ∃sh :vsp ~/.vim/bundle/vim-snippets/snippets/html.snippets<cr>
+:nnoremap ₪sh :source ~/.vim/bundle/vim-snippets/snippets/html.snippets<cr>

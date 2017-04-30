@@ -4,18 +4,15 @@
 :syntax on
 :setlocal foldmethod=indent
 "comment a line
-"χ is altgr-c
-"∁ is altgr-shift-c
-:nnoremap <buffer> χ :s/^/#<cr> 
-:nnoremap <buffer> ∁ :s/^#//<cr> 
+"» is altgr-c
+"” is altgr-shift-c
+:nnoremap <buffer> © :s/^/#<cr> 
+:nnoremap <buffer> ® :s/^#//<cr> 
+:vnoremap <buffer> © :s/^/#<cr> 
+:vnoremap <buffer> ® :s/^#//<cr> 
 
 "wrap a python line with \
 :nnoremap <buffer> <localleader>\ A\<cr><esc>
-
-"stubs
-:iabbrev <buffer> iff if:<left>
-:iabbrev <buffer> forr for:<left>
-:iabbrev <buffer> rr returj
 
 "operator pending movements
 :onoremap <buffer> b /return<cr>
@@ -80,3 +77,6 @@
 
 "execute current file
 :nnoremap €€ :! python2.7 % <cr>
+
+" Snippets
+:nnoremap ∃sp :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
