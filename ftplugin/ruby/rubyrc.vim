@@ -7,7 +7,8 @@
 :setlocal expandtab
 :setlocal tabstop=2
 
-:nnoremap ∃sr :vsp ~/.vim/bundle/vim-snippets/snippets/ruby.snippets
+:nnoremap <localleader>editsnippets :vsp ~/.vim/bundle/vim-snippets/snippets/ruby.snippets
+:nnoremap <localleader>sourcesnippets :source ~/.vim/bundle/vim-snippets/snippets/ruby.snippets
 
 "comment line with alt-gr c
 :nnoremap © :call Comment()<cr>

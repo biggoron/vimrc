@@ -79,4 +79,5 @@
 :nnoremap €€ :! python2.7 % <cr>
 
 " Snippets
-:nnoremap ∃sp :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
+:nnoremap <localleader>editsnippets :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
+:nnoremap <localleader>sourcesnippets :source ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>
