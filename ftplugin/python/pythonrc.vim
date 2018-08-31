@@ -6,13 +6,13 @@
 "comment a line
 "» is altgr-c
 "” is altgr-shift-c
-:nnoremap <buffer> © :s/^/#<cr> 
-:nnoremap <buffer> ® :s/^#//<cr> 
-:vnoremap <buffer> © :s/^/#<cr> 
-:vnoremap <buffer> ® :s/^#//<cr> 
+:nnoremap <buffer> ¢ :s/^/#<cr> 
+:nnoremap <buffer> © :s/^#//<cr> 
+:vnoremap <buffer> ¢ :s/^/#<cr> 
+:vnoremap <buffer> © :s/^#//<cr> 
 
 "wrap a python line with \
-:nnoremap <buffer> <localleader>\ A\<cr><esc>
+:nnoremap <buffer> <localleader>w A\<cr><esc>
 
 "operator pending movements
 :onoremap <buffer> b /return<cr>
@@ -48,36 +48,19 @@
 :setlocal expandtab
 :setlocal tabstop=2
 
-" To debug
-:ab deb1 print("here1")
-:ab deb2 print("here2")
-:ab deb3 print("here3")
-
-"usual packages
-:ab iwave import pywt
-:ab iwaved import pywt.data
-:ab inp import numpy as np
-:ab iplt import matplotlib.pyplot as plt
-:ab ima import math as math
-
 "execute current file with python 3.5 with muhe-3
-:nnoremap ⅜ :!python3.5 %:p<cr>
+:nnoremap <buffer> <localleader>run :!python3.5 %:p<cr>
 "execute current file with python 2.7 with muhe-2
-:nnoremap ⅛ :!python2.7 %:p<cr>
+:nnoremap <buffer> <localleader>érun :!python2.7 %:p<cr>
 
 "indent
-:nnoremap » >>
-:nnoremap « <<
+:nnoremap à >>
+:nnoremap ç <<
 
 "pyplot
-:nnoremap πp oplt.plot(π)<esc>
-:nnoremap πs oplt.show()<esc>
-:ab πs plt.show()
-:ab πp plt.plot()
-
-"execute current file
-:nnoremap €€ :! python2.7 % <cr>
+:nnoremap <buffer> <localleader>ppp oplt.plot(@@@)<esc>
+:nnoremap <buffer> <localleader>pps oplt.show()<esc>
 
 " Snippets
-:nnoremap <localleader>editsnippets :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
-:nnoremap <localleader>sourcesnippets :source ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>
+:nnoremap <buffer> <F8> :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
+:nnoremap <buffer> <F7> :source ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>

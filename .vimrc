@@ -15,30 +15,37 @@ set background=dark
 
 " Leaders
 "definition of leader key
-:let mapleader = "-"
+:let mapleader = "ù"
 
 "definition of local leader key
-:let maplocalleader = "=" 
+:let maplocalleader = "-" 
 
 " NERDTree
 " TODO: install Nerdtree
-:nnoremap <leader>tree :NERDTreeToggle<cr>
+:nnoremap <F1> :NERDTreeToggle<cr>
 
 "Configuration file
 :syntax on
 
 "quick edit .vimrc in a split of the screen
-:nnoremap <leader>editvimrc :vsplit ~/.vimrc<cr> 
+:nnoremap <F2> :vsplit ~/.vimrc<cr> 
+"quick source main config file .vimrc
+:nnoremap <F3> :source $MYVIMRC<cr>
 
 "quick edit vim ideas:
-:nnoremap <leader>editideas :vsplit ~/.vim/ideas.vim<cr>
+:nnoremap <F12> :vsplit ~/.vim/ideas.vim<cr>
 
-"quick source main config file .vimrc
-:nnoremap <leader>sourcevimrc :source $MYVIMRC<cr>
+" prefill search for snippet file
+:nnoremap <F4> :vsp ~/.vim/bundle/vim-snippets/snippets/
 
 "search fr placeholder
-:nnoremap <leader>p /@@@<cr>
-:nnoremap <leader>P ?@@@<cr>
+:nnoremap é" /@@@<cr>
+:nnoremap é& ?@@@<cr>
+:nnoremap éé 3s
+
+
+"save close
+:nnoremap ² :wq<cr> 
 
 "left side numbers
 :set number
@@ -64,10 +71,16 @@ set background=dark
 "nb of spaces corresponding to a tab
 :setlocal tabstop=2
 
+:nnoremap → :set autoindent<cr>
+:nnoremap ı :set noautoindent<cr>
+:nnoremap <leader>swé :set shiftwidth=2<cr>
+:nnoremap <leader>sw' :set shiftwidth=4<cr>
+
 "Load conf for python files
 :let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
-:nnoremap <leader>editpythonrc :vsplit $PYTHONRC<cr>
-:nnoremap <leader>sourcepythonrc :source $PYTHONRC<cr>
+:let $PYTHONSNRC = $HOME."/.vim/bundle/vim-snippets/snippets/python.snippets"
+:nnoremap <F5> :vsplit $PYTHONRC<cr>
+:nnoremap <F6> :source $PYTHONRC<cr>
 :augroup Python
 :autocmd!
   :autocmd Filetype python :source $PYTHONRC
@@ -83,6 +96,7 @@ set background=dark
 :augroup END
 
 "Load conf for eruby files
+"TODO: adapt to french keyboard and new writing
 :let $ERUBYRC = $HOME."/.vim/ftplugin/ruby/erubyrc.vim"
 :nnoremap ∃errc :vsplit $ERUBYRC<cr>
 :command! ErubyGr vsp /usr/share/vim/vim74/syntax/eruby.vim
@@ -97,6 +111,7 @@ set background=dark
 :let $SNIPPETSRC = $HOME."/.vim/ftplugin/snippets/snippetsrc.vim"
 :nnoremap <leader>editsnippetsrc :vsplit $SNIPPETSRC<cr>
 :nnoremap <leader>sourcesnippetsrc :source $SNIPPETSRC<cr>
+:nnoremap <leader>updatesnippets :call ReloadAllSnippets()<cr>
 :augroup Snippets
 :autocmd!
   :autocmd Filetype snippets :source $SNIPPETSRC
@@ -149,6 +164,7 @@ set background=dark
 :nnoremap <leader>t= :Tabularize /=<cr>
 :nnoremap <leader>t, :Tabularize /,\zs<cr>
 :nnoremap <leader>tt :Tabularize / <cr>
+:vnoremap <F8> :Tabularize /
 
 
 " Center the screen after movement
