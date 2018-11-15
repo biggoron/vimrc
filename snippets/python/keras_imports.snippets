@@ -1,0 +1,34 @@
+# Keras
+snippet klay "import keras layers"
+	from keras import layers as kl
+snippet kseq "keras models Sequential"
+	from keras.models import Sequential
+snippet kfc "keras layers Dense"
+	from keras.layers import Dense
+snippet kfc "keras layers Dense core"
+	from keras.layers.core import Dense
+snippet kact "keras layers Activation"
+	from keras.layers.core import Activation
+snippet kutilsnp "keras utils np_utils"
+	from keras.utils import np.utils
+snippet onehotfunc "function to transform list to one hot"
+	def one_hot_encode_object_array(arr):
+		uniques, ids = np.unique(arr, return_inverse=True)
+		return np_utils.to_categorical(ids, len(uniques))
+snippet oh "convert to one hot encoding"
+	one_hot_encode_object_array(${1:train_Y})
+#  models
+snippet modseq "Sequential model"
+	${1:model} = Sequential()
+#  compile
+snippet compile "compile classification network with adam"
+	${1:model}.compile(loss='${2:binary_crossentropy}', optimizer='${3:adam}', metrics=['${4:accuracy}'])
+# fit
+snippet fit "fit the model"
+	${1:model}.fit(${2:X}, ${3:Y}, epochs=${4:150}, batch_size=${5:10})
+snippet score "run the model on data"
+	${1:scores} = ${2:model}.evaluate(${3:X}, ${4:Y})
+snippet printscores "print the score on a metric"
+	print("\n%s: %.2f%%" % (${1:model}.metrics_names[${2:1}], ${3:scores}[$2]*100))
+
+

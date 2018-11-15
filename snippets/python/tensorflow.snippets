@@ -1,0 +1,43 @@
+# Tensorflow
+snippet tfpl "tensorflow placeholder"
+	tf.placeholder(${1:tf.float32}, [${2:None}, ${3:None}])
+snippet frtfla "import layer library"
+	from tensorflow.contrib import layers
+snippet frtflo "import losses library"
+	from tensorflow.contrib import losses
+snippet frtfsc "import scope library"
+	from tensorflow.contrib.framework import arg_scope
+snippet doh "one hot encoding function"
+	def ${1:one_hot_encode_object_array}(arr):
+		uniques, ids = np.unique(arr, return_inverse=True)
+		return np_utils.to_categorical(ids, len(uniques))
+snippet oh "convert to one hot encoding"
+	${1:train_Y_ohe} = one_hot_encode_object_array(${2:train_Y})
+snippet tfr "tensorflow reshape"
+	${1:x} = tf.reshape($1, shape=[${2}])${0}
+snippet tfconv "tensorflow conv 2D"
+	${1:layer} = tf.layers.conv2D(
+		${2:input},
+		${3:filter_nb},
+		${4:kernel},
+		activation=${5:tf.nn.relu}
+	)
+snippet tfmp2 "tensorflow maxpool 2D"
+	${1:layer} = tf.layers.max_pooling2D(
+		${2:input},
+		${3:x_pool},
+		${4:y_pool}
+	)
+snippet tffl "tensorflow flatten"
+	${1:layer} = tf.contrib.layers.flatten(${2:input})
+snippet tfds "tensorflow dense"
+	${1:layer} = tf.layers.dense(
+		${2:input},
+		${3:width}
+	)
+snippet tfdo "tensorflow dropout"
+	${1:layer} = tf.layers.dropout(
+		${2:input},
+		rate=${3:rate},
+		training=${4:training}
+	)

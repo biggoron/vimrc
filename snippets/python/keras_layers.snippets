@@ -1,0 +1,17 @@
+#  layers
+#    fc
+snippet addfci "add dense layer input"
+	${1:model}.add(Dense(${2:h}, input_dim=${3:input_dim}, activation='${4:relu}'))
+snippet addfc "add dense layer input"
+	${1:model}.add(Dense(${2:h}, activation='${4:relu}'))
+snippet addfcr "add dense layer relu activation"
+	${1:model}.add(Dense(${2:h}, activation='relu'))
+snippet addfcsig "add dense layer sigmoid activation"
+	${1:model}.add(Dense(${2:h}, activation='sigmoid'))
+snippet addactr "add activation layer"
+	${1:model}.add(Activation('relu'))
+snippet addactsig "add activation layer"
+	${1:model}.add(Activation('sigmoid'))
+snippet addacts "add activation layer"
+	${1:model}.add(Activation('softmax'))
+

@@ -1,0 +1,7 @@
+# Scikit-learn
+snippet ttsplit "divide X and Y between test and train sets"
+	train_${1:X}, test_$1, train_${2:Y}, test_$2 = train_test_split(X, Y, train_size=${3:0.5}, test_size=${4:0.5}, random_state=${5:0})
+snippet logreg "sklearn logreg"
+	${1:lr} = LogisticRegressionCV()
+	$1.fit(${2:train_X}, ${3:train_Y})
+	$1.score(${2:test_X}, ${3:test_Y})

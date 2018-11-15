@@ -4,3 +4,9 @@
 "in c, various includes, comments
 
 " capitalize in insert mode
+
+tfvar
+
+altg-d pour "_d
+
+fix çà en v

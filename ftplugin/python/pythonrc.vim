@@ -1,4 +1,6 @@
 "configuration file for python files
+:nnoremap <buffer> <F5> :vsplit $PYTHONRC<cr>
+:nnoremap <buffer> <F6> :source $PYTHONRC<cr>
 
 "put syntax on
 :syntax on
@@ -6,13 +8,13 @@
 "comment a line
 "» is altgr-c
 "” is altgr-shift-c
-:nnoremap <buffer> © :s/^/#<cr> 
-:nnoremap <buffer> ® :s/^#//<cr> 
-:vnoremap <buffer> © :s/^/#<cr> 
-:vnoremap <buffer> ® :s/^#//<cr> 
+:nnoremap <buffer> ¢ :s/^/#<cr> 
+:nnoremap <buffer> © :s/^#//<cr> 
+:vnoremap <buffer> ¢ :s/^/#<cr> 
+:vnoremap <buffer> © :s/^#//<cr> 
 
 "wrap a python line with \
-:nnoremap <buffer> <localleader>\ A\<cr><esc>
+:nnoremap <buffer> <localleader>w A\<cr><esc>
 
 "operator pending movements
 :onoremap <buffer> b /return<cr>
@@ -42,42 +44,21 @@
 
 "shift setlocaltings 
 :setlocal shiftround
-:setlocal shiftwidth=2
+:setlocal shiftwidth=4
 :setlocal autoindent
 :setlocal smarttab
 :setlocal expandtab
-:setlocal tabstop=2
-
-" To debug
-:ab deb1 print("here1")
-:ab deb2 print("here2")
-:ab deb3 print("here3")
-
-"usual packages
-:ab iwave import pywt
-:ab iwaved import pywt.data
-:ab inp import numpy as np
-:ab iplt import matplotlib.pyplot as plt
-:ab ima import math as math
+:setlocal tabstop=4
 
 "execute current file with python 3.5 with muhe-3
-:nnoremap ⅜ :!python3.5 %:p<cr>
+:nnoremap <buffer> <localleader>run :!python3.5 %:p<cr>
 "execute current file with python 2.7 with muhe-2
-:nnoremap ⅛ :!python2.7 %:p<cr>
-
-"indent
-:nnoremap » >>
-:nnoremap « <<
-
-"pyplot
-:nnoremap πp oplt.plot(π)<esc>
-:nnoremap πs oplt.show()<esc>
-:ab πs plt.show()
-:ab πp plt.plot()
-
-"execute current file
-:nnoremap €€ :! python2.7 % <cr>
+:nnoremap <buffer> <localleader>érun :!python2.7 %:p<cr>
 
 " Snippets
-:nnoremap <localleader>editsnippets :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
-:nnoremap <localleader>sourcesnippets :source ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>
+:nnoremap <buffer> <F8> :vsp ~/.vim/snippets/python/
+:nnoremap <buffer> <F7> :source ~/.vim/snippets/python/
+
+" Abbreviation
+:ab đ False
+:ab ŧ True

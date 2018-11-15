@@ -1,0 +1,50 @@
+snippet camvar "variables for the camera"
+	const VIEW_ANGLE = ${1:45};
+	const ASPECT     = ${2:WIDTH} / ${3:HEIGHT};
+	const NEAR       = ${4:0.1};
+	const FAR        = ${5:10000};
+
+snippet scenesize "set the scene size"
+	const WIDTH  = window.innerWidth;
+	const HEIGHT = window.innerHeight;
+
+snippet rendercamscene "setup renderer camera and scene"
+	const renderer = new THREE.WebGLRenderer();
+	const camera = new THREE.PerspectiveCamera(
+		VIEW_ANGLE,
+		ASPECT,
+		NEAR,
+		FAR        
+	);
+	const scene = new THREE.Scene();
+	scene.add(camera)
+	renderer.setSize(WIDTH, HEIGHT);
+
+snippet linkdom "link renderer to dom"
+	const container = document.querySelector('#${1:container}')
+	container.appendChild(renderer.domElement);
+
+snippet lightpt "insert a light point"
+	const ${1:pointLight} = new THREE.PointLight(${2:0xFFFFFF});
+	pointLight.position.x = ${3:10};
+	pointLight.position.y = ${4:50};
+	pointLight.position.z = ${5:130};
+	${6:scene}.add($1);
+
+snippet .posx
+	.position.x
+snippet .posy
+	.position.y
+snippet .posz
+	.position.z
+snippet scadd
+	${1:scene}.add(${2:sphere});
+
+snippet updatefn
+	function update () {
+		renderer.render(${1:scene}, ${2:camera});
+		requestAnimationFrame(update);
+	}
+	requestAnimationFrame(update);
+snippet tt.
+	THREE.
