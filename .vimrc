@@ -83,6 +83,8 @@ set background=dark
 "Load conf for python files
 :let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
 :let $PYTHONSNRC = $HOME."/.vim/bundle/vim-snippets/snippets/python.snippets"
+:nnoremap <F5> :vsplit $PYTHONRC<cr>
+:nnoremap <F6> :source $PYTHONRC<cr>
 :augroup Python
 :autocmd!
   :autocmd Filetype python :source $PYTHONRC
