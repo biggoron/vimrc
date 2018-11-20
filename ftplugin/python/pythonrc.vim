@@ -72,5 +72,4 @@
 :nnoremap <buffer> <localleader>pps oplt.show()<esc>
 
 " Snippets
-:nnoremap <buffer> <F8> :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
-:nnoremap <buffer> <F7> :source ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>
+:nnoremap <buffer> <F9> :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
