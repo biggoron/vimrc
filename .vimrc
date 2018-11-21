@@ -256,3 +256,13 @@ endif
 
 " Quick fix can open files in vertical split with leader enter
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
+" Git
+:nnoremap ŋdd :Gdiff<cr>
+:nnoremap ŋdo :Gdiff origin<cr>
+:nnoremap ŋc :Gcommit %<cr>
+:nnoremap ŋs :Gstatus<cr>
+:nnoremap ŋp :Gpull<cr>
+:nnoremap ŋP :Gpush<cr>
+:nnoremap ŋm :Gmove
+:nnoremap ŋrm :Gdelete
