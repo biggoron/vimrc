@@ -25,6 +25,8 @@ git clone https://github.com/tomtom/tlib_vim.git bundle/tlib_vim
 git clone https://github.com/MarcWeber/vim-addon-mw-utils.git bundle/vim-addon-mw-utils
 # Colorscheme
 git clone https://github.com/altercation/vim-colors-solarized.git bundle/vim-colors-solarized
+# Easymotion
+git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
 # TODO: check if folder exists
 cp .vimrc ..
 mv ../vimrc ../.vim
