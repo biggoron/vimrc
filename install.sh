@@ -29,5 +29,4 @@ git clone https://github.com/altercation/vim-colors-solarized.git bundle/vim-col
 git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
 # TODO: check if folder exists
 cp .vimrc ..
-mv ../vimrc ../.vim
 
