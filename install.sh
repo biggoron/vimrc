@@ -14,7 +14,7 @@ git clone https://github.com/scrooloose/nerdtree.git bundle/nerdtree
 # Tabular
 git clone https://github.com/godlygeek/tabular.git bundle/tabular
 # Airline
-git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+git clone https://github.com/vim-airline/vim-airline bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes bundle/vim-airline-themes
 # Fugitive
 git clone https://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
