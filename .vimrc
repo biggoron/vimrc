@@ -16,6 +16,7 @@ syntax enable
 set t_Co=16
 colorscheme solarized
 set background=dark
+:set nohlsearch
 
 " Leaders
 "definition of leader key
@@ -53,18 +54,17 @@ set background=dark
 
 "left side numbers
 :set number
-:nnoremap <leader>rnu :set rnu!<cr>
-:nnoremap <leader>nu :set nu!<cr>
+:nnoremap ¶ :set rnu!<cr>
+:nnoremap ® :set nu!<cr>
 
 "uppercase
 :nnoremap <leader>u viwUe
 "en mode insertion
 :inoremap <c-u> <esc>viwUea
-
 "default indenting and tabbing
 "indent is a multiple of shiftwidth
 :setlocal shiftround
-:setlocal shiftwidth=2
+:setlocal shiftwidth=4
 "indent by default each line like the one before
 :setlocal autoindent
 "a tab shifts the remaining text on the right to
@@ -73,7 +73,7 @@ set background=dark
 "tabs are blanks
 :setlocal expandtab
 "nb of spaces corresponding to a tab
-:setlocal tabstop=2
+:setlocal tabstop=4
 
 :nnoremap → :set autoindent<cr>
 :nnoremap ı :set noautoindent<cr>
@@ -266,3 +266,25 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 :nnoremap ŋP :Gpush<cr>
 :nnoremap ŋm :Gmove
 :nnoremap ŋrm :Gdelete
+
+" Easymotion
+map <Space> <Plug>(easymotion-prefix)
+map <Space>l <Plug>(easymotion-lineforward)
+map <Space>h <Plug>(easymotion-linebackward)
+:let g:EasyMotion_smartcase = 1
+map  <Space><Space> <Plug>(easymotion-sn)
+omap <Space><Space> <Plug>(easymotion-tn)
+
+" Buffers
+:nnoremap <Space><Tab> :bn<cr>
+:nnoremap <Space>² :bp<cr>
+:nnoremap <Space><cr> :ls<cr>
+:nnoremap <Space><BS> :b#<cr>
+:set hidden
+:set confirm
+
+nnoremap <CR><CR> :w<cr>:bdelete<cr>
+nnoremap :wq :w<cr>:bdelete<cr>
+nnoremap <BS><BS> :bdelete!<cr>
+
+:nnoremap ² :w<cr>
