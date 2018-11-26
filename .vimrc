@@ -218,6 +218,8 @@ set background=dark
 " airline
 :let g:airline_powerline_fonts = 1
 :let g:airline#extensions#ale#enabled = 1
+:let g:airline#extensions#tabline#formatter = 'unique_tail'
+:let g:airline#extensions#tabline#enabled = 1
 
 "ALE
 :nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -285,6 +287,6 @@ omap <Space><Space> <Plug>(easymotion-tn)
 
 nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap :wq :w<cr>:bdelete<cr>
-nnoremap <BS><BS> :bdelete!<cr>
+nnoremap == :bdelete!<cr>
 
 :nnoremap ² :w<cr>
