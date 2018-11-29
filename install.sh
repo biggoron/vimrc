@@ -28,6 +28,8 @@ git clone https://github.com/MarcWeber/vim-addon-mw-utils.git bundle/vim-addon-m
 git clone https://github.com/altercation/vim-colors-solarized.git bundle/vim-colors-solarized
 # Easymotion
 git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
+# vim surround
+git clone https://github.com/tpope/vim-surround.git bundle/vim-surround
 # TODO: check if folder exists
 cp .vimrc ..
 

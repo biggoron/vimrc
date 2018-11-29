@@ -44,13 +44,10 @@ set background=dark
 :nnoremap <F4> :vsp ~/.vim/bundle/vim-snippets/snippets/
 
 "search fr placeholder
-:nnoremap é" /@@@<cr>
-:nnoremap é& ?@@@<cr>
-:nnoremap éé 3s
+":nnoremap é" /@@@<cr>
+":nnoremap é& ?@@@<cr>
+":nnoremap éé 3s
 
-
-"save close
-:nnoremap ² :wq<cr> 
 
 "left side numbers
 :set number
@@ -218,8 +215,14 @@ set background=dark
 " airline
 :let g:airline_powerline_fonts = 1
 :let g:airline#extensions#ale#enabled = 1
-:let g:airline#extensions#tabline#formatter = 'unique_tail'
 :let g:airline#extensions#tabline#enabled = 1
+:let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+:let g:airline#extensions#tabline#show_tab_nr = 1
+:let g:airline#extensions#tabline#formatter = 'unique_tail'
+:let g:airline#extensions#tabline#buffer_nr_show = 1
+:let g:airline#extensions#tabline#fnametruncate = 16
+:let g:airline#extensions#tabline#fnamecollapse = 2
+:let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 "ALE
 :nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -278,15 +281,22 @@ map  <Space><Space> <Plug>(easymotion-sn)
 omap <Space><Space> <Plug>(easymotion-tn)
 
 " Buffers
-:nnoremap <Space><Tab> :bn<cr>
-:nnoremap <Space>² :bp<cr>
+:nnoremap é :bn<cr>
+:nnoremap ² :bp<cr>
 :nnoremap <Space><cr> :ls<cr>
-:nnoremap <Space><BS> :b#<cr>
+:nnoremap & :b#<cr>
+:nmap <space>& <Plug>AirlineSelectTab1
+:nmap <space>é <Plug>AirlineSelectTab2
+:nmap <space>" <Plug>AirlineSelectTab3
+:nmap <space>' <Plug>AirlineSelectTab4
+:nmap <space>( <Plug>AirlineSelectTab5
+:nmap <space>- <Plug>AirlineSelectTab6
+:nmap <space>è <Plug>AirlineSelectTab7
+:nmap <space>_ <Plug>AirlineSelectTab8
+:nmap <space>ç <Plug>AirlineSelectTab9
 :set hidden
 :set confirm
 
 nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
-
-:nnoremap ² :w<cr>
