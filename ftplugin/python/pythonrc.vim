@@ -8,10 +8,10 @@
 "comment a line
 "» is altgr-c
 "” is altgr-shift-c
-:nnoremap <buffer> ¢ :s/^/#<cr> 
-:nnoremap <buffer> © :s/^#//<cr> 
-:vnoremap <buffer> ¢ :s/^/#<cr> 
-:vnoremap <buffer> © :s/^#//<cr> 
+:nnoremap <buffer> ¢ :s/^/#<cr>
+:nnoremap <buffer> © :s/^#//<cr>
+:vnoremap <buffer> ¢ :s/^/#<cr>
+:vnoremap <buffer> © :s/^#//<cr>
 
 "wrap a python line with \
 :nnoremap <buffer> <localleader>w A\<cr><esc>
@@ -42,7 +42,7 @@
 :nnoremap <buffer> <localleader>l *Nilen(<esc>ea)<esc>b
 :nnoremap <buffer> <localleader>" *Ni"<esc>ea"<esc>b
 
-"shift setlocaltings 
+"shift setlocaltings
 :setlocal shiftround
 :setlocal shiftwidth=4
 :setlocal autoindent
@@ -78,3 +78,6 @@
 :let b:ale_completion_enabled = 1
 :let g:ale_sign_error = '⛔'
 :let g:ale_sign_warning = '⚠️'
+
+"
+:autocmd! BufWritePre * %s/\s\+$//e
