@@ -23,7 +23,7 @@ set background=dark
 :let mapleader = "ù"
 
 "definition of local leader key
-:let maplocalleader = "-" 
+:let maplocalleader = "-"
 
 " NERDTree
 " TODO: install Nerdtree
@@ -33,7 +33,7 @@ set background=dark
 :syntax on
 
 "quick edit .vimrc in a split of the screen
-:nnoremap <F2> :vsplit ~/.vimrc<cr> 
+:nnoremap <F2> :vsplit ~/.vimrc<cr>
 "quick source main config file .vimrc
 :nnoremap <F3> :source $MYVIMRC<cr>
 
@@ -194,7 +194,7 @@ set background=dark
 :	  let c = c + 1
 :   execute "sleep " . l:step
 :   redraw!
-: endwhile  
+: endwhile
 :endfunction
 
 " win makes movement 10 times faster
@@ -211,7 +211,7 @@ set background=dark
 :let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
 :let g:AutoPairsShortcutFastWrap = 'ł'
 :let g:AutoPairsShortcutJump = 'ĸ'
-  
+
 " airline
 :let g:airline_powerline_fonts = 1
 :let g:airline#extensions#ale#enabled = 1
@@ -300,3 +300,5 @@ omap <Space><Space> <Plug>(easymotion-tn)
 nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
+
+:nnoremap Q :echo @%<cr>

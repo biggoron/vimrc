@@ -8,3 +8,9 @@ snippet @a "abstract method decorator"
 	@abstractmethod
 snippet @p "property decorator"
 	@property
+snippet time "computes time"
+	a = time.clock()
+	${0}
+	b = time.clock()
+	print(b-a)
+
