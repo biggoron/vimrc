@@ -19,6 +19,7 @@ git clone https://github.com/vim-airline/vim-airline-themes bundle/vim-airline-t
 git clone https://github.com/bling/vim-bufferline bundle/vim-bufferline
 # Fugitive
 git clone https://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
+git clone https://github.com/airblade/vim-gitgutter.git bundle/vim-gitgutter
 # Snippets
 git clone https://github.com/garbas/vim-snipmate.git bundle/vim-snipmate
 git clone https://github.com/honza/vim-snippets.git bundle/vim-snippets

@@ -263,14 +263,21 @@ endif
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
 " Git
-:nnoremap ŋdd :Gdiff<cr>
-:nnoremap ŋdo :Gdiff origin<cr>
-:nnoremap ŋc :Gcommit %<cr>
-:nnoremap ŋs :Gstatus<cr>
-:nnoremap ŋp :Gpull<cr>
-:nnoremap ŋP :Gpush<cr>
-:nnoremap ŋm :Gmove
-:nnoremap ŋrm :Gdelete
+:nnoremap <leader>gd :Gdiff<cr>
+:nnoremap <leader>go :Gdiff origin<cr>
+:nnoremap <leader>gc :Gcommit<cr>
+:nnoremap <leader>gcc :Gcommit %<cr>
+:nnoremap <leader>gce :Gcommit amend no-edit<cr>
+:nnoremap <leader>gs :Gstatus<cr>
+:nnoremap <leader>gp :Gpull<cr>
+:nnoremap <leader>gP :Gpush<cr>
+:nnoremap <leader>gm :Gmove
+:nnoremap <leader>grm :Gdelete
+:nnoremap <leader>gg :GitGutterToggle<cr>
+:nmap <Leader>ga <Plug>GitGutterStageHunk
+:nmap <Leader>gu <Plug>GitGutterUndoHunk
+:nmap <leader>gj <Plug>GitGutterNextHunk
+:nmap <leader>gk <Plug>GitGutterPrevHunk
 
 " Easymotion
 map <Space> <Plug>(easymotion-prefix)
