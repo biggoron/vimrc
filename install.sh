@@ -16,7 +16,6 @@ git clone https://github.com/godlygeek/tabular.git bundle/tabular
 # Airline
 git clone https://github.com/vim-airline/vim-airline bundle/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes bundle/vim-airline-themes
-git clone https://github.com/bling/vim-bufferline bundle/vim-bufferline
 # Fugitive
 git clone https://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
 git clone https://github.com/airblade/vim-gitgutter.git bundle/vim-gitgutter
@@ -33,4 +32,3 @@ git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
 git clone https://github.com/tpope/vim-surround.git bundle/vim-surround
 # TODO: check if folder exists
 cp .vimrc ..
-

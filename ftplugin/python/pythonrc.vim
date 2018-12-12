@@ -76,7 +76,7 @@
 
 " Linter
 :let b:ale_linters = ["flake8", "mypy", "pycodestyle", "pydocstyle", "pylint"]
-:let b:ale_fixers = ["isort", "black", "remove_trailing_lines", "trim_whitespace"]
+:let b:ale_fixers = ["isort", "yapf", "remove_trailing_lines", "trim_whitespace"]
 :let b:ale_completion_enabled = 1
 :let g:ale_sign_error = '⛔'
 :let g:ale_sign_warning = '⚠️'

@@ -229,6 +229,7 @@ set background=dark
 "ALE
 :nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 :nmap <silent> <C-j> <Plug>(ale_next_wrap)
+:nnoremap £ :ALEFix<cr>
 
 
 "Comments
@@ -315,3 +316,5 @@ nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
 
 :nnoremap Q :echo @%<cr>
+
+:set shell=bash
