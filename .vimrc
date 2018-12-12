@@ -7,9 +7,11 @@
 
 "ctrlP plugin
 :set runtimepath^=~/.vim/bundle/ctrlp.vim
+:set updatetime=100
 
 "Pathogen, for plugins
 execute pathogen#infect()
+packloadall 
 
 "colorscheme
 syntax enable
@@ -278,6 +280,10 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 :nmap <Leader>gu <Plug>GitGutterUndoHunk
 :nmap <leader>gj <Plug>GitGutterNextHunk
 :nmap <leader>gk <Plug>GitGutterPrevHunk
+highlight link GitGutterAdd DiffAdd
+highlight link GitGutterDeleteLine DiffDelete
+highlight link GitGutterChangeLine DiffChange
+highlight link GitGutterChangeDeleteLine DiffChange
 
 " Easymotion
 map <Space> <Plug>(easymotion-prefix)
