@@ -1,65 +1,26 @@
+"""""""""""
+" GENERAL "
+"""""""""""
 :set nocompatible
 :set encoding=utf-8
 :filetype plugin on
 
+:set shell=bash
 " makes ! behave the same than console (aliases, etc...)
-" :set shellcmdflag=-ic
+:set shellcmdflag=-ic
 
-"ctrlP plugin
-:set runtimepath^=~/.vim/bundle/ctrlp.vim
 :set updatetime=100
 
-"Pathogen, for plugins
-execute pathogen#infect()
-packloadall 
-
-"colorscheme
-syntax enable
-set t_Co=16
-colorscheme solarized
-set background=dark
-:set nohlsearch
-
 " Leaders
-"definition of leader key
 :let mapleader = "ù"
-
-"definition of local leader key
 :let maplocalleader = "-"
 
-" NERDTree
-" TODO: install Nerdtree
-:nnoremap <F1> :NERDTreeToggle<cr>
-
-"Configuration file
-:syntax on
-
-"quick edit .vimrc in a split of the screen
-:nnoremap <F2> :vsplit ~/.vimrc<cr>
-"quick source main config file .vimrc
-:nnoremap <F3> :source $MYVIMRC<cr>
-
-"quick edit vim ideas:
-:nnoremap <F12> :vsplit ~/.vim/ideas.vim<cr>
-
-" prefill search for snippet file
-:nnoremap <F4> :vsp ~/.vim/bundle/vim-snippets/snippets/
-
-"search fr placeholder
-":nnoremap é" /@@@<cr>
-":nnoremap é& ?@@@<cr>
-":nnoremap éé 3s
-
-
-"left side numbers
+" Left side numbers
 :set number
 :nnoremap ¶ :set rnu!<cr>
 :nnoremap ® :set nu!<cr>
 
-"uppercase
-:nnoremap <leader>u viwUe
-"en mode insertion
-:inoremap <c-u> <esc>viwUea
+" Indentation
 "default indenting and tabbing
 "indent is a multiple of shiftwidth
 :setlocal shiftround
@@ -73,11 +34,80 @@ set background=dark
 :setlocal expandtab
 "nb of spaces corresponding to a tab
 :setlocal tabstop=4
-
+"indent
+:nnoremap à >>
+:nnoremap ç <<
+"on i key
 :nnoremap → :set autoindent<cr>
 :nnoremap ı :set noautoindent<cr>
-:nnoremap <leader>swé :set shiftwidth=2<cr>
-:nnoremap <leader>sw' :set shiftwidth=4<cr>
+:nnoremap <leader>iwé :set shiftwidth=2<cr>
+:nnoremap <leader>iw' :set shiftwidth=4<cr>
+
+"wrapping lines
+:set wrap
+:set textwidth=0
+:set wrapmargin=0
+:set linebreak
+:set nolist
+
+"show matching parens
+:set showmatch
+:set matchtime=1
+
+" Print file path
+:nnoremap Q :echo @%<cr>
+
+"""""""""""
+" PLUGINS "
+"""""""""""
+"Pathogen
+execute pathogen#infect()
+packloadall 
+
+"ctrlP
+:set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" NERDTree
+:nnoremap <F1> :NERDTreeToggle<cr>
+
+" Tabularize
+:vnoremap <leader>t= :Tabularize /=<cr>
+:vnoremap <leader>t, :Tabularize /,\zs<cr>
+:vnoremap <leader>tt :Tabularize / <cr>
+:nnoremap <leader>t= :Tabularize /=<cr>
+:nnoremap <leader>t, :Tabularize /,\zs<cr>
+:nnoremap <leader>tt :Tabularize / <cr>
+:vnoremap <F8> :Tabularize /
+
+"snippets
+:let g:snippets_dir = "~/.vim/snippets"
+
+"""""""""""""""
+" COLORSCHEME "
+"""""""""""""""
+:syntax enable
+:set t_Co=16
+:colorscheme solarized
+:set background=dark
+:set nohlsearch
+
+
+"""""""""""""""""
+" CONFIGURATION "
+"""""""""""""""""
+
+" Configuration file
+:syntax on
+
+" quick edit .vimrc in a split of the screen
+:nnoremap <F2> :vsplit ~/.vimrc<cr>
+" quick source main config file .vimrc
+:nnoremap <F3> :source $MYVIMRC<cr>
+" quick edit vim ideas:
+:nnoremap <F12> :vsplit ~/.vim/ideas.vim<cr>
+" prefill search for config file
+:nnoremap <F4> :vsp ~/.vim/
+
 
 "Load conf for python files
 :let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
@@ -127,6 +157,24 @@ set background=dark
   :autocmd Filetype snippets :source $SNIPPETSRC
 :augroup END
 
+
+""""""""""""""""""""""
+" WORD MANIPULATION " 
+""""""""""""""""""""""
+"uppercase
+:nnoremap <leader>u viwUe
+"en mode insertion
+:inoremap <c-u> <esc>viwUea
+
+"prefill search command
+"ß is alt-gr and s, „ is the same with shift
+:nnoremap <leader>s :s/
+:nnoremap <leader>S :%s/
+
+
+"""""""""""""
+" MOVEMENTS "
+"""""""""""""
 "in parenthesis / brackets / braces
  "i( i[ i{ works, just like i" i' i<
 "in the next parenthesis
@@ -142,40 +190,11 @@ set background=dark
 "in the last braces
 :onoremap in{ :<c-u>normal! F{vi{<cr>
 
-"wrapping lines
-:set wrap
-:set textwidth=0
-:set wrapmargin=0
-:set linebreak
-:set nolist
-
-"show matching parens
-:set showmatch
-:set matchtime=1
-
 "remap the directionnal pad to switch split
 :nnoremap   <Left>    <C-W>h
 :nnoremap   <Right>   <C-W>l
 :nnoremap   <Up>      <C-W>k
 :nnoremap   <Down>    <C-W>j
-
-"prefill search command
-"ß is alt-gr and s, „ is the same with shift
-:nnoremap <leader>s :s/
-:nnoremap <leader>S :%s/
-
-"save the file
-:nnoremap <leader><leader> :w<cr>
-
-" Tabularize
-:vnoremap <leader>t= :Tabularize /=<cr>
-:vnoremap <leader>t, :Tabularize /,\zs<cr>
-:vnoremap <leader>tt :Tabularize / <cr>
-:nnoremap <leader>t= :Tabularize /=<cr>
-:nnoremap <leader>t, :Tabularize /,\zs<cr>
-:nnoremap <leader>tt :Tabularize / <cr>
-:vnoremap <F8> :Tabularize /
-
 
 " Center the screen after movement
 :nnoremap h hzz
@@ -183,30 +202,8 @@ set background=dark
 :nnoremap k kzz
 :nnoremap l lzz
 
-:function! RepeatCommand(command, ...)
-: if a:0 > 0
-:   let l:step = a:1 . "m"
-: else
-:   let l:step = "10m"
-: end
-
-: let c = 1
-: while c <= 10
-:   execute "normal! " . a:command
-:	  let c = c + 1
-:   execute "sleep " . l:step
-:   redraw!
-: endwhile
-:endfunction
-
-" win makes movement 10 times faster
-:nnoremap <leader>j :call RepeatCommand("jzz", "8")<cr>
-:nnoremap <leader>k :call RepeatCommand("kzz", "8")<cr>
-
-:let g:snippets_dir = "~/.vim/snippets"
-"indent
-:nnoremap à >>
-:nnoremap ç <<
+"save the file
+:nnoremap <leader><leader> :w<cr>
 
 " Automatch
 :let g:AutoPairsShortcutToggle = 'µ'
@@ -265,7 +262,9 @@ endif
 " Quick fix can open files in vertical split with leader enter
 autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 
-" Git
+"""""""
+" GIT "
+"""""""
 :nnoremap <leader>gd :Gdiff<cr>
 :nnoremap <leader>go :Gdiff origin<cr>
 :nnoremap <leader>gc :Gcommit<cr>
@@ -286,7 +285,9 @@ highlight link GitGutterDeleteLine DiffDelete
 highlight link GitGutterChangeLine DiffChange
 highlight link GitGutterChangeDeleteLine DiffChange
 
-" Easymotion
+""""""""""
+" MOTION "
+""""""""""
 map <Space> <Plug>(easymotion-prefix)
 map <Space>l <Plug>(easymotion-lineforward)
 map <Space>h <Plug>(easymotion-linebackward)
@@ -294,7 +295,9 @@ map <Space>h <Plug>(easymotion-linebackward)
 map  <Space><Space> <Plug>(easymotion-sn)
 omap <Space><Space> <Plug>(easymotion-tn)
 
-" Buffers
+"""""""""""
+" BUFFERS "
+"""""""""""
 :nnoremap é :bn<cr>
 :nnoremap ² :bp<cr>
 :nnoremap <Space><cr> :ls<cr>
@@ -315,6 +318,4 @@ nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
 
-:nnoremap Q :echo @%<cr>
 
-:set shell=bash
