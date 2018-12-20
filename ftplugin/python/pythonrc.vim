@@ -75,8 +75,10 @@
 :nnoremap <buffer> <F9> :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
 
 " Linter
-:let b:ale_linters = ["flake8", "mypy", "pycodestyle", "pydocstyle", "pylint"]
+:let b:ale_linters = ["mypy", "pycodestyle", "pydocstyle", "flake8", "pylint"]
 :let b:ale_fixers = ["isort", "yapf", "remove_trailing_lines", "trim_whitespace"]
 :let b:ale_completion_enabled = 1
 :let g:ale_sign_error = '⛔'
 :let g:ale_sign_warning = '⚠️'
+
+:nnoremap ” yypk^f(f d$j^f(f ldT(hv0r ^
