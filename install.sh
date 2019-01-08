@@ -30,5 +30,7 @@ git clone https://github.com/altercation/vim-colors-solarized.git bundle/vim-col
 git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
 # vim surround
 git clone https://github.com/tpope/vim-surround.git bundle/vim-surround
+# vim repeat
+git clone https://github.com/tpope/vim-repeat.git bundle/vim-repeat
 # TODO: check if folder exists
 cp .vimrc ..

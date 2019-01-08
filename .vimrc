@@ -294,6 +294,12 @@ map <Space>h <Plug>(easymotion-linebackward)
 :let g:EasyMotion_smartcase = 1
 map  <Space><Space> <Plug>(easymotion-sn)
 omap <Space><Space> <Plug>(easymotion-tn)
+map <leader>n <Plug>(easymotion-repeat)
+silent! call repeat#set("\<Plug>easymotion-prefix", v:count)
+silent! call repeat#set("\<Plug>easymotion-lineforward", v:count)
+silent! call repeat#set("\<Plug>easymotion-linebackward", v:count)
+silent! call repeat#set("\<Plug>easymotion-sn", v:count)
+silent! call repeat#set("\<Plug>easymotion-tn", v:count)
 
 """""""""""
 " BUFFERS "
