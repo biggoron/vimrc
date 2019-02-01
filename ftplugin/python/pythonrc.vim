@@ -82,3 +82,26 @@
 :let g:ale_sign_warning = '⚠️'
 
 :nnoremap ” yypk^f(f d$j^f(f ldT(hv0r ^
+
+" Method movement
+:nnoremap <Leader>j /def<cr>zz
+:nnoremap <Leader>J /return<cr>zz
+:nnoremap <Leader>k ?def<cr>zz
+:nnoremap <Leader>K ?return<cr>zz
+:onoremap <Leader>j /def<cr>
+:onoremap <Leader>J /return<cr>
+:onoremap <Leader>k ?def<cr>
+:onoremap <Leader>K ?return<cr>
+:vnoremap <Leader>j /def<cr>
+:vnoremap <Leader>J /return<cr>
+:vnoremap <Leader>k ?def<cr>
+:vnoremap <Leader>K ?return<cr>
+
+" Jedi Autocompletion
+let g:jedi#goto_command = "<space>d"
+let g:jedi#goto_assignments_command = "<space>g"
+let g:jedi#goto_definitions_command = "<space>D"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<space>*"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
