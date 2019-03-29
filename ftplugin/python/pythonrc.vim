@@ -63,10 +63,6 @@
 :ab đ False
 :ab ŧ True
 
-"indent
-:nnoremap à >>
-:nnoremap ç <<
-
 "pyplot
 :nnoremap <buffer> <localleader>ppp oplt.plot(@@@)<esc>
 :nnoremap <buffer> <localleader>pps oplt.show()<esc>
