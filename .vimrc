@@ -34,9 +34,6 @@
 :setlocal expandtab
 "nb of spaces corresponding to a tab
 :setlocal tabstop=4
-"indent
-:nnoremap à >>
-:nnoremap ç <<
 "on i key
 :nnoremap → :set autoindent<cr>
 :nnoremap ı :set noautoindent<cr>
@@ -324,4 +321,14 @@ nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
 
+:function! SaveImport()
+:  let @i = expand("%")
+:  let @i = substitute(@i, '/', '.', 'g')
+:  let @i = substitute(@i, 'src.', '', 'g')
+:  let @i = substitute(@i, '.py', '', 'g')
+:endfunction
 
+nnoremap <leader>i :call SaveImport()<cr>
+
+:nnoremap à :cn<cr>
+:nnoremap ç :cp<cr>
