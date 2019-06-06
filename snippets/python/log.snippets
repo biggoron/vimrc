@@ -1,0 +1,12 @@
+# change after EH
+snippet lget "get logger"
+	logger = logging.getLogger(${1:"basic_logger"})
+snippet linfo "info log"
+	logger.info("${0}")
+snippet lwarn "warning log"
+	logger.warning("${0}")
+snippet lerr "error log"
+	logger.error("${0}")
+# remove after EH
+snippet @succ "success log"
+	@CoreLogger.success("${1:name}", ${2:message})
