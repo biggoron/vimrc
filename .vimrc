@@ -59,6 +59,7 @@
 """""""""""
 "Pathogen
 execute pathogen#infect()
+execute pathogen#helptags()
 packloadall 
 
 "ctrlP
@@ -74,6 +75,8 @@ packloadall
 :nnoremap <leader>t= :Tabularize /=<cr>
 :nnoremap <leader>t, :Tabularize /,\zs<cr>
 :nnoremap <leader>tt :Tabularize / <cr>
+" Arrays
+:vnoremap <leader>ta :Tabularize /\v ([)?(-)?\d+(,)?
 :vnoremap <F8> :Tabularize /
 
 "snippets
@@ -88,60 +91,28 @@ packloadall
 :set background=dark
 :set nohlsearch
 
-
 """""""""""""""""
 " CONFIGURATION "
 """""""""""""""""
-
 " Configuration file
 :syntax on
 
+:let $VIMDIR = $HOME."/.vimconfig_dan/vimrc/"
+:let $VIMCONF = $VIMDIR.".vimrc"
 " quick edit .vimrc in a split of the screen
-:nnoremap <F2> :vsplit ~/.vimrc<cr>
+:nnoremap <F2> :vsplit $VIMCONF<cr>
 " quick source main config file .vimrc
-:nnoremap <F3> :source $MYVIMRC<cr>
-" quick edit vim ideas:
-:nnoremap <F12> :vsplit ~/.vim/ideas.vim<cr>
-" prefill search for config file
-:nnoremap <F4> :vsp ~/.vim/
+:nnoremap <F3> :source $VIMCONF<cr>
 
 
 "Load conf for python files
-:let $PYTHONRC = $HOME."/.vim/ftplugin/python/pythonrc.vim"
-:let $PYTHONSNRC = $HOME."/.vim/bundle/vim-snippets/snippets/python.snippets"
+:let $PYTHONRC = $VIMDIR."ftplugin/python/pythonrc.vim"
+:let $PYTHONSNRC = $VIMDIR."bundle/vim-snippets/snippets/python.snippets"
 :nnoremap <F5> :vsplit $PYTHONRC<cr>
 :nnoremap <F6> :source $PYTHONRC<cr>
 :augroup Python
 :autocmd!
   :autocmd Filetype python :source $PYTHONRC
-:augroup END
-
-"Load conf for js files
-:let $JSRC = $HOME."/.vim/ftplugin/javascript/javascript.vim"
-:augroup Javascript
-:autocmd!
-  :autocmd Filetype javascript :source $JSRC
-:augroup END
-
-"Load conf for ruby files
-:let $RUBYRC = $HOME."/.vim/ftplugin/ruby/rubyrc.vim"
-:nnoremap <leader>editrubyrc :vsplit $RUBYRC<cr>
-:nnoremap <leader>sourcerubyrc :source $RUBYRC<cr>
-:augroup Ruby
-:autocmd!
-  :autocmd Filetype ruby :source $RUBYRC
-:augroup END
-
-"Load conf for eruby files
-"TODO: adapt to french keyboard and new writing
-:let $ERUBYRC = $HOME."/.vim/ftplugin/ruby/erubyrc.vim"
-:nnoremap ∃errc :vsplit $ERUBYRC<cr>
-:command! ErubyGr vsp /usr/share/vim/vim74/syntax/eruby.vim
-:nnoremap ∃erc :vsplit ~/.vim/colors/eruby.vim<cr>
-
-:augroup eRuby
-:autocmd!
-  :autocmd Filetype eruby :source $ERUBYRC
 :augroup END
 
 "Load conf for snippets files
@@ -224,6 +195,11 @@ packloadall
 :nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 :nmap <silent> <C-j> <Plug>(ale_next_wrap)
 :nnoremap £ :ALEFix<cr>
+
+"PowerLine setup
+:set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+:set laststatus=2
+:set t_Co=256
 
 
 "Comments
