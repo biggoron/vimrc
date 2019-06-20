@@ -14,7 +14,7 @@ nnoremap <localleader>i :call SaveImport()<cr>
 
 "put syntax on
 :syntax on
-:setlocal foldmethod=indent
+:setlocal foldmethod=manual
 "comment a line
 "» is altgr-c
 "” is altgr-shift-c
