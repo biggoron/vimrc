@@ -3,8 +3,8 @@
 """"""""""""""
 :let mapleader = "ù"
 :let maplocalleader = "!"
-:let $VIMDIR = $HOME."/.vim/"
-:let $VIMCONF = $HOME."/.vimrc"
+:let $VIMDIR = $HOME."/.vimconfig_dan/vimrc/"
+:let $VIMCONF = $VIMDIR.".vimrc"
 
 """""""""""
 " GENERAL "
