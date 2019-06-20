@@ -1,3 +1,11 @@
+""""""""""""""
+" PARAMETERS "
+""""""""""""""
+:let mapleader = "ù"
+:let maplocalleader = "!"
+:let $VIMDIR = $HOME."/.vim/"
+:let $VIMCONF = $HOME."/.vimrc"
+
 """""""""""
 " GENERAL "
 """""""""""
@@ -11,14 +19,10 @@
 
 :set updatetime=100
 
-" Leaders
-:let mapleader = "ù"
-:let maplocalleader = "-"
-
 " Left side numbers
 :set number
-:nnoremap ¶ :set rnu!<cr>
-:nnoremap ® :set nu!<cr>
+:nnoremap <leader>inr :set rnu!<cr>
+:nnoremap <leader>inn :set nu!<cr>
 
 " Indentation
 "default indenting and tabbing
@@ -35,10 +39,9 @@
 "nb of spaces corresponding to a tab
 :setlocal tabstop=4
 "on i key
-:nnoremap → :set autoindent<cr>
-:nnoremap ı :set noautoindent<cr>
-:nnoremap <leader>iwé :set shiftwidth=2<cr>
-:nnoremap <leader>iw' :set shiftwidth=4<cr>
+:nnoremap <leader>ii :set autoindent!<cr>
+:nnoremap <leader>iiw2 :set shiftwidth=2<cr>
+:nnoremap <leader>iiw4 :set shiftwidth=4<cr>
 
 "wrapping lines
 :set wrap
@@ -79,9 +82,6 @@ packloadall
 :vnoremap <leader>ta :Tabularize /\v ([)?(-)?\d+(,)?
 :vnoremap <F8> :Tabularize /
 
-"snippets
-:let g:snippets_dir = "~/.vim/snippets"
-
 """""""""""""""
 " COLORSCHEME "
 """""""""""""""
@@ -97,8 +97,6 @@ packloadall
 " Configuration file
 :syntax on
 
-:let $VIMDIR = $HOME."/.vimconfig_dan/vimrc/"
-:let $VIMCONF = $VIMDIR.".vimrc"
 " quick edit .vimrc in a split of the screen
 :nnoremap <F2> :vsplit $VIMCONF<cr>
 " quick source main config file .vimrc
@@ -107,23 +105,17 @@ packloadall
 
 "Load conf for python files
 :let $PYTHONRC = $VIMDIR."ftplugin/python/pythonrc.vim"
-:let $PYTHONSNRC = $VIMDIR."bundle/vim-snippets/snippets/python.snippets"
-:nnoremap <F5> :vsplit $PYTHONRC<cr>
-:nnoremap <F6> :source $PYTHONRC<cr>
+:nnoremap <F4> :vsplit $PYTHONRC<cr>
+:nnoremap <F5> :source $PYTHONRC<cr>
 :augroup Python
 :autocmd!
   :autocmd Filetype python :source $PYTHONRC
+  :nnoremap <F7> :SnipMateLoadScope!(python)<cr>
 :augroup END
 
 "Load conf for snippets files
-:let $SNIPPETSRC = $HOME."/.vim/ftplugin/snippets/snippetsrc.vim"
-:nnoremap <leader>editsnippetsrc :vsplit $SNIPPETSRC<cr>
-:nnoremap <leader>sourcesnippetsrc :source $SNIPPETSRC<cr>
-:nnoremap <leader>updatesnippets :call ReloadAllSnippets()<cr>
-:augroup Snippets
-:autocmd!
-  :autocmd Filetype snippets :source $SNIPPETSRC
-:augroup END
+:let $SNIPPETSDIR = $VIMDIR."snippets/"
+:nnoremap <F6> :vsplit $SNIPPETSDIR<cr>
 
 
 """"""""""""""""""""""
@@ -135,9 +127,8 @@ packloadall
 :inoremap <c-u> <esc>viwUea
 
 "prefill search command
-"ß is alt-gr and s, „ is the same with shift
-:nnoremap <leader>s :s/
-:nnoremap <leader>S :%s/
+:nnoremap <leader>ss :s/
+:nnoremap <leader>SS :%s/
 
 
 """""""""""""
@@ -203,14 +194,10 @@ packloadall
 
 
 "Comments
-
 :let g:NERDCommentEmptyLines = 1
 :let g:NERDToggleCheckAllLines = 1
 :let g:NERDCompactSexyComs = 1
 :let g:NERDSpaceDelims = 1
-
-" Shamrock
-:ab ehsm ~/Documents/projects/EulerHermes/shamrock_model/
 
 " CtrlP
 :let g:ctrlp_working_path_mode = 'ar'
@@ -228,7 +215,7 @@ if executable('ag')
 endif
 
 " bind K to grep word under cursor
-:nnoremap ¤ :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>j
+:nnoremap <leader>sw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>j
 
 :command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw
 
@@ -253,10 +240,10 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 :nmap <Leader>gu <Plug>GitGutterUndoHunk
 :nmap <leader>gj <Plug>GitGutterNextHunk
 :nmap <leader>gk <Plug>GitGutterPrevHunk
-highlight link GitGutterAdd DiffAdd
-highlight link GitGutterDeleteLine DiffDelete
-highlight link GitGutterChangeLine DiffChange
-highlight link GitGutterChangeDeleteLine DiffChange
+" highlight link GitGutterAdd DiffAdd
+" highlight link GitGutterDeleteLine DiffDelete
+" highlight link GitGutterChangeLine DiffChange
+" highlight link GitGutterChangeDeleteLine DiffChange
 
 """"""""""
 " MOTION "
@@ -294,17 +281,7 @@ silent! call repeat#set("\<Plug>easymotion-tn", v:count)
 :set confirm
 
 nnoremap <CR><CR> :w<cr>:bdelete<cr>
-nnoremap :wq :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
-
-:function! SaveImport()
-:  let @i = expand("%")
-:  let @i = substitute(@i, '/', '.', 'g')
-:  let @i = substitute(@i, 'src.', '', 'g')
-:  let @i = substitute(@i, '.py', '', 'g')
-:endfunction
-
-nnoremap <leader>i :call SaveImport()<cr>
 
 :nnoremap à :cn<cr>
 :nnoremap ç :cp<cr>

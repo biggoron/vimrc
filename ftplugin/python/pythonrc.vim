@@ -2,6 +2,16 @@
 :nnoremap <buffer> <F5> :vsplit $PYTHONRC<cr>
 :nnoremap <buffer> <F6> :source $PYTHONRC<cr>
 
+:function! SaveImport()
+:  let @i = expand("%")
+:  let @i = substitute(@i, '/', '.', 'g')
+:  let @i = substitute(@i, 'src.', '', 'g')
+:  let @i = substitute(@i, '.py', '', 'g')
+:endfunction
+" Stores text to import current file in i buffer
+nnoremap <localleader>i :call SaveImport()<cr>
+
+
 "put syntax on
 :syntax on
 :setlocal foldmethod=indent
