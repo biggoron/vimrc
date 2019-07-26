@@ -111,3 +111,15 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<space>*"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+" Execution
+" Execute file in console
+:nnoremap :: :exec '!python' shellescape(@%, 1)<cr>
+" Quick run via <F5>
+nnoremap !! :call <SID>compile_and_run()<CR>
+function! s:compile_and_run()
+    exec 'w'
+    exec "AsyncRun! time python %"
+endfunction
+" Open QuickFix automatically
+let g:asyncrun_open = 15
