@@ -15,13 +15,6 @@ nnoremap <localleader>i :call SaveImport()<cr>
 "put syntax on
 :syntax on
 :setlocal foldmethod=manual
-"comment a line
-"» is altgr-c
-"” is altgr-shift-c
-:nnoremap <buffer> ¢ :s/^/#<cr>
-:nnoremap <buffer> © :s/^#//<cr>
-:vnoremap <buffer> ¢ :s/^/#<cr>
-:vnoremap <buffer> © :s/^#//<cr>
 
 "wrap a python line with \
 :nnoremap <buffer> <localleader>w A\<cr><esc>
@@ -60,34 +53,26 @@ nnoremap <localleader>i :call SaveImport()<cr>
 :setlocal expandtab
 :setlocal tabstop=4
 
-"execute current file with python 3.5 with muhe-3
-:nnoremap <buffer> <localleader>run :!python3.5 %:p<cr>
-"execute current file with python 2.7 with muhe-2
-:nnoremap <buffer> <localleader>érun :!python2.7 %:p<cr>
-
 " Snippets
 :nnoremap <buffer> <F8> :vsp ~/.vim/snippets/python/
 :nnoremap <buffer> <F7> :source ~/.vim/snippets/python/
 
 " Abbreviation
-:ab đ False
-:ab ŧ True
-
-"pyplot
-:nnoremap <buffer> <localleader>ppp oplt.plot(@@@)<esc>
-:nnoremap <buffer> <localleader>pps oplt.show()<esc>
+:ab ± False
+:ab þ True
 
 " Snippets
 :nnoremap <buffer> <F9> :vsp ~/.vim/bundle/vim-snippets/snippets/python.snippets <cr>
 
 " Linter
-:let b:ale_linters = ["mypy", "pycodestyle", "pydocstyle", "flake8", "pylint"]
+:let b:ale_linters = ["pylint"]
 :let b:ale_fixers = ["isort", "yapf", "remove_trailing_lines", "trim_whitespace"]
 :let b:ale_completion_enabled = 1
 :let g:ale_sign_error = '⛔'
 :let g:ale_sign_warning = '⚠️'
 
-:nnoremap ” yypk^f(f d$j^f(f ldT(hv0r ^
+" Wrap arguments in function
+:nnoremap <leader>b yypk^f(f d$j^f(f ldT(hv0r ^
 
 " Method movement
 :nnoremap <Leader>j /def<cr>zz

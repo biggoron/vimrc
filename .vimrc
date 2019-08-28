@@ -4,7 +4,7 @@
 :let mapleader = "ù"
 :let maplocalleader = "!"
 :let $VIMDIR = $HOME."/.vim/"
-:let $VIMCONF = $HOME."/.vimrc"
+:let $VIMCONF = $VIMDIR."/.vimrc"
 
 """""""""""
 " GENERAL "
@@ -21,8 +21,8 @@
 
 " Left side numbers
 :set number
-:nnoremap <leader>inr :set rnu!<cr>
-:nnoremap <leader>inn :set nu!<cr>
+:nnoremap <leader>ir :set rnu!<cr>
+:nnoremap <leader>ii :set nu!<cr>
 
 " Indentation
 "default indenting and tabbing
@@ -39,9 +39,9 @@
 "nb of spaces corresponding to a tab
 :setlocal tabstop=4
 "on i key
-:nnoremap <leader>ii :set autoindent!<cr>
-:nnoremap <leader>iiw2 :set shiftwidth=2<cr>
-:nnoremap <leader>iiw4 :set shiftwidth=4<cr>
+:nnoremap <leader>ia :set autoindent!<cr>
+:nnoremap <leader>i2 :set shiftwidth=2<cr>
+:nnoremap <leader>i4 :set shiftwidth=4<cr>
 
 "wrapping lines
 :set wrap
@@ -147,7 +147,15 @@ packloadall
 "in the next braces
 :onoremap in{ :<c-u>normal! f{vi{<cr>
 "in the last braces
-:onoremap in{ :<c-u>normal! F{vi{<cr>
+:onoremap il{ :<c-u>normal! F{vi{<cr>
+"in the next double quotes
+:onoremap in" :<c-u>normal! f"vi"<cr>
+"in the last double quotes
+:onoremap il" :<c-u>normal! F"vi"<cr>
+"in the next simple quotes
+:onoremap in' :<c-u>normal! f'vi'<cr>
+"in the last simple quotes
+:onoremap il' :<c-u>normal! F'vi'<cr>
 
 "remap the directionnal pad to switch split
 :nnoremap   <Left>    <C-W>h
@@ -166,9 +174,9 @@ packloadall
 
 " Automatch
 :let g:AutoPairsShortcutToggle = 'µ'
-:let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
-:let g:AutoPairsShortcutFastWrap = 'ł'
-:let g:AutoPairsShortcutJump = 'ĸ'
+:let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+:let g:AutoPairsShortcutFastWrap = '-'
+:let g:AutoPairsShortcutJump = '_'
 
 " airline
 :let g:airline_powerline_fonts = 1
@@ -214,8 +222,10 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" bind K to grep word under cursor
-:nnoremap <leader>sw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>j
+" Quick grep on word under cursor
+:nnoremap <leader>° :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" Quick grep on visual selection
+vnoremap <leader>+ y:grep! "<C-r>=escape(@",'/\')<CR>"<CR>:cw<CR>
 
 :command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw
 
@@ -283,5 +293,6 @@ silent! call repeat#set("\<Plug>easymotion-tn", v:count)
 nnoremap <CR><CR> :w<cr>:bdelete<cr>
 nnoremap == :bdelete!<cr>
 
+" Navigate Quickfix
 :nnoremap à :cn<cr>
 :nnoremap ç :cp<cr>
