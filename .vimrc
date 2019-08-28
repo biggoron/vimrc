@@ -175,8 +175,8 @@ packloadall
 " Automatch
 :let g:AutoPairsShortcutToggle = 'µ'
 :let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
-:let g:AutoPairsShortcutFastWrap = '-'
-:let g:AutoPairsShortcutJump = '_'
+:let g:AutoPairsShortcutFastWrap = 'Ô'
+:let g:AutoPairsShortcutJump = 'Î'
 
 " airline
 :let g:airline_powerline_fonts = 1
