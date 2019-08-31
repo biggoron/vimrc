@@ -4,7 +4,7 @@
 :let mapleader = "ù"
 :let maplocalleader = "!"
 :let $VIMDIR = $HOME."/.vim/"
-:let $VIMCONF = $HOME."/.vimrc"
+:let $VIMCONF = $HOME."/.vim/.vimrc"
 
 """""""""""
 " GENERAL "
@@ -86,7 +86,6 @@ packloadall
 " COLORSCHEME "
 """""""""""""""
 :syntax enable
-:set t_Co=16
 :colorscheme solarized
 :set background=dark
 :set nohlsearch
@@ -285,3 +284,7 @@ nnoremap == :bdelete!<cr>
 
 :nnoremap à :cn<cr>
 :nnoremap ç :cp<cr>
+
+:let g:ctrlp_custom_ignore = {
+  \ 'file': '\vdata/structures/',
+  \ }
