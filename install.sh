@@ -34,5 +34,5 @@ git clone https://github.com/tpope/vim-surround.git bundle/vim-surround
 git clone https://github.com/tpope/vim-repeat.git bundle/vim-repeat
 # python autocomplete
 git clone --recursive https://github.com/davidhalter/jedi-vim.git bundle/jedi-vim
-# TODO: check if folder exists
-cp .vimrc ..
+echo "alias vim='vim -u "$(pwd)"/.vimrc'" >>~/.bashrc
+echo "alias vim='vim -u "$(pwd)"/.vimrc'" >>~/.zshrc
