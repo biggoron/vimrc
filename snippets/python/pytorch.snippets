@@ -1,0 +1,37 @@
+snippet ito "import torch"
+	import torch
+snippet iton "import torch nn"
+	import torch.nn as nn
+snippet itov "import torchvision"
+	import torchvision
+snippet itovt "import torchvision transforms"
+	import torchvision.transforms as transforms
+snippet todev "setup torch device"
+	device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+snippet tomnist "load and get MNIST batcher"
+	dataset = torchvision.datasets.MNIST(
+		root='../../data',
+		train=True,
+		transform=transforms.ToTensor(),
+		download=True)
+	data_loader = torch.utils.data.DataLoader(
+		dataset=dataset,
+		batch_size=100,
+		shuffle=True)
+snippet nnli "linear layer"
+	nn.Linear(input_size, output_size)
+snippet nnrelu "relu layer"
+	nn.ReLU()
+snippet nnmodule "relu layer"
+	class ${1:ModuleName}(nn.Module1):
+		def __init__(self, input_size=784, hidden_size=500, num_classes=10):
+			super(${2:ModuleName}, self).__init__()
+			self.fc1 = nn.Linear(input_size, hidden_size)
+			self.relu = nn.ReLU()
+			self.fc2 = nn.Linear(hidden_size, num_classes)
+
+		def forward(self, x):
+			out = self.fc1(x)
+			out = self.relu(out)
+			out = self.fc2(out)
+			return out
