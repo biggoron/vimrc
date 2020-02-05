@@ -13,4 +13,30 @@ snippet time "computes time"
 	${0}
 	b = time.clock()
 	print(b-a)
+snippet docs "Creates a docstring"
+	"""
+	${1:Description}.
+	"""
+snippet docsp "Creates a docstring with parameters"
+	"""
+	${1:Description}.
+	
+	Parameters
+	----------
+	${2:parameter}: ${3:type}
+		${4:desc}
+	"""
+snippet docspr "Creates a docstring with parameters and return"
+	"""
+	${1:Description}.
+	
+	Parameters
+	----------
+	${2:parameter}: ${3:type}
+		${4:desc}
 
+	Returns
+	----------
+	${5:output}: ${6:type}
+		${7:desc}
+	"""

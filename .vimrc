@@ -224,7 +224,7 @@ endif
 " Quick grep on word under cursor
 :nnoremap <leader>° :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Quick grep on visual selection
-vnoremap <leader>+ y:grep! "<C-r>=escape(@",'/\')<CR>"<CR>:cw<CR>
+vnoremap <leader>+ y:vimgrep! "<C-r>=escape(@",'/\')<CR>" **/*.py<CR>:cw<CR>
 
 :command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw
 
@@ -299,3 +299,6 @@ nnoremap == :bdelete!<cr>
 :let g:ctrlp_custom_ignore = {
   \ 'file': '\vdata/structures/',
   \ }
+
+:nnoremap <leader>l viw"ly
+:nnoremap <leader>L viw"ty:<c-u>let @l = @l.', '.@t<CR>
