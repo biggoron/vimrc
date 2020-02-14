@@ -209,7 +209,6 @@ packloadall
 " CtrlP
 :let g:ctrlp_working_path_mode = 'ar'
 
-" The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -220,11 +219,16 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+if executable('rg')
+  " Use rg over ag
+  set grepprg=rg\ --vimgrep\ -w
+endif
+
 
 " Quick grep on word under cursor
-:nnoremap <leader>° :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+:nnoremap <space>gr viwy:grep! "<C-r>=escape(@",'/\')<CR>" <CR>:cw<CR>
 " Quick grep on visual selection
-vnoremap <leader>+ y:vimgrep! "<C-r>=escape(@",'/\')<CR>" **/*.py<CR>:cw<CR>
+vnoremap <leader>+ y:grep! "<C-r>=escape(@",'/\')<CR>" **/*.py<CR>:cw<CR>
 
 :command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw
 
