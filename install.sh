@@ -32,6 +32,8 @@ git clone https://github.com/easymotion/vim-easymotion bundle/vim-easymotion
 git clone https://github.com/tpope/vim-surround.git bundle/vim-surround
 # vim repeat
 git clone https://github.com/tpope/vim-repeat.git bundle/vim-repeat
+# Rust
+git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
 # python autocomplete
 git clone --recursive https://github.com/davidhalter/jedi-vim.git bundle/jedi-vim
 echo "alias vim='vim -u "$(pwd)"/.vimrc'" >>~/.bashrc
