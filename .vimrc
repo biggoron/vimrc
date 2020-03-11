@@ -244,8 +244,9 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 :nnoremap <leader>gcc :Gcommit %<cr>
 :nnoremap <leader>gce :Gcommit amend no-edit<cr>
 :nnoremap <leader>gs :Gstatus<cr>
-:nnoremap <leader>gp :Gpull<cr>
-:nnoremap <leader>gP :Gpush<cr>
+:nnoremap <leader>gpull :Gpull<cr>
+:nnoremap <leader>gpush :Gpush<cr>
+:nnoremap <leader>gpom :Git push origin master<cr>
 :nnoremap <leader>gm :Gmove
 :nnoremap <leader>grm :Gdelete
 :nnoremap <leader>gg :GitGutterToggle<cr>
@@ -306,3 +307,5 @@ nnoremap == :bdelete!<cr>
 
 :nnoremap <leader>l viw"ly
 :nnoremap <leader>L viw"ty:<c-u>let @l = @l.', '.@t<CR>
+:nnoremap Ç :cclose<cr>
+:nnoremap À :copen<cr>

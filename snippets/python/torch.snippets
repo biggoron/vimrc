@@ -1,0 +1,12 @@
+snippet cudadevice "Set device as gpu if available else cpu"
+	device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+snippet vdataloader "Stub  MNIST data loader and batcher"
+	dataset = torchvision.datasets.MNIST(
+		root='../../data', 
+		train=True, 
+		transform=transforms.ToTensor(),  
+		download=True)
+	data_loader = torch.utils.data.DataLoader(
+		dataset=dataset, 
+		batch_size=100, 
+		shuffle=True)	

@@ -108,3 +108,6 @@ function! s:compile_and_run()
 endfunction
 " Open QuickFix automatically
 let g:asyncrun_open = 15
+"
+" Jedi is slow in insert mode otherwise
+let g:jedi#show_call_signatures = "0"
